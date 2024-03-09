@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tpcloud-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tpcloud
+  template:
+    metadata:
+      labels:
+        app: tpcloud
+    spec:
+      containers:
+        - name: tpcloud
+          image: anthonyserrano/tpcloud:v1
+          ports:
+            - containerPort: 3000
